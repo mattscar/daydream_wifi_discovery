@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.quiller.wifidiscovery">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
+    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="true"/>
+    <uses-feature android:name="android.software.vr.mode" android:required="true"/>
+    <uses-feature android:name="android.hardware.vr.high_performance" android:required="true"/>
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:label="@string/app_name"
+        android:icon="@mipmap/network_discovery"
+        android:theme="@style/VrActivityTheme">
+        <activity
+            android:name="WiFiDiscoveryActivity"
+            android:label="@string/app_name"            
+            android:icon="@mipmap/network_discovery"
+            android:screenOrientation="landscape"            
+            android:configChanges="orientation|keyboardHidden|screenSize"            
+            android:enableVrMode="@string/gvr_vr_mode_component"
+            android:resizeableActivity="false">
+            
+            <meta-data android:name="com.google.android.vr.icon"
+                       android:resource="@drawable/network_discovery_foreground" />
+            <meta-data android:name="com.google.android.vr.icon_background"
+                       android:resource="@drawable/network_discovery_background" />
+                       
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="com.google.intent.category.DAYDREAM" />                
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
